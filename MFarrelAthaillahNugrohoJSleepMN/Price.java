@@ -26,7 +26,7 @@ public class Price {
 
     private double getDiscountedPrice() {
         if(discount > 100.0) {
-            return 100.0;
+            return 0.0;
         } else if (discount == 100.0) {
             return 0.0;
         } else {
