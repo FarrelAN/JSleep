@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Price
+comment1.params=price
+comment1.target=Price(double)
+comment2.params=price\ discount
+comment2.target=Price(double,\ int)
+comment3.params=price\ rebate
+comment3.target=Price(double,\ double)
+comment4.params=
+comment4.target=double\ getDiscountedPrice()
+comment5.params=
+comment5.target=double\ getRebatededPrice()
+numComments=6

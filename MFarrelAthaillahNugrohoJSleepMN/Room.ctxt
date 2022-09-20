@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=Room
+comment1.params=name\ size\ price\ facility
+comment1.target=Room(java.lang.String,\ int,\ Price,\ Facility)
+numComments=2
