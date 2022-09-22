@@ -1,5 +1,22 @@
 package MFarrelAthaillahNugrohoJSleepMN;
 
+
+public class Price{
+    
+    public double price;
+    public double discount;
+    
+    public Price (double price) {
+        this.discount = 0;
+        this.price = price;
+    }
+    
+    public Price (double price, double discount) {
+        this.price = price;
+        this.discount = 0;
+    }
+}
+/*
 public class Price {
 
     public double rebate;
@@ -43,4 +60,4 @@ public class Price {
 
     }
 }
-
+ */
