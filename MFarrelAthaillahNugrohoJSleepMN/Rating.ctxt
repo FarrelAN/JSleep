@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Rating
+comment0.text=\r\n\ Ini\ adalah\ class\ Rating\r\n\ @author\ M.\ Farrel\ Athaillah\ Nugroho\r\n\ @version\ Modul\ 3\r\n
 comment1.params=
 comment1.target=Rating()
 comment2.params=rating

@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.target=Payment
+comment0.text=\r\n\ Ini\ adalah\ class\ Payment\r\n\ @author\ M.\ Farrel\ Athaillah\ Nugroho\r\n\ @version\ Modul\ 3\r\n
+comment1.params=id\ buyerId\ renterId\ time\ roomId\ from\ to
+comment1.target=Payment(int,\ int,\ int,\ java.lang.String,\ int,\ java.lang.String,\ java.lang.String)
+comment2.params=id\ buyer\ renter\ time\ roomId\ from\ to
+comment2.target=Payment(int,\ Account,\ Renter,\ java.lang.String,\ int,\ java.lang.String,\ java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ print()
+comment4.params=
+comment4.target=int\ getRoomId()
+numComments=5

@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Invoice
+comment0.text=\r\n\ Ini\ adalah\ class\ Invoice\ yang\ merupakan\ subclass\ dari\ Serializable\r\n\ @author\ M.\ Farrel\ Athaillah\ Nugroho\r\n\ @version\ Modul\ 3\r\n
+comment1.params=id\ buyerId\ renterId\ time
+comment1.target=Invoice(int,\ int,\ int,\ java.lang.String)
+comment2.params=id\ buyer\ renter\ time
+comment2.target=Invoice(int,\ Account,\ Renter,\ java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ print()
+numComments=4

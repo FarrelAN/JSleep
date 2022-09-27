@@ -1,5 +1,9 @@
 package MFarrelAthaillahNugrohoJSleepMN;
-
+/**
+ * Ini adalah class Rating
+ * @author M. Farrel Athaillah Nugroho
+ * @version Modul 3
+ */
 public class Rating
 {
     private long total, count;

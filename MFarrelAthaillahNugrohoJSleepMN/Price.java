@@ -1,6 +1,9 @@
 package MFarrelAthaillahNugrohoJSleepMN;
-
-
+/**
+ * Ini adalah class Price
+ * @author M. Farrel Athaillah Nugroho
+ * @version Modul 3
+ */
 public class Price{
     
     public double price;

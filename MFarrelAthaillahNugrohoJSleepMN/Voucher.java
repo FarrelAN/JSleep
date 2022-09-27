@@ -1,8 +1,10 @@
 package MFarrelAthaillahNugrohoJSleepMN;
-
-
-public class Voucher
-{
+/**
+ * Ini adalah class Voucher
+ * @author M. Farrel Athaillah Nugroho
+ * @version Modul 3
+ */
+public class Voucher extends Serializable {
    public Type type;
    public double cut;
    public String name;
@@ -10,7 +12,9 @@ public class Voucher
    public double minimum;
    private boolean used;
    
-   public Voucher(String name, int code, Type type, double minimum, double cut) {
+   public Voucher(int id, String name, int code, Type type, boolean used, 
+   double minimum, double cut) {
+       super(id);
        this.type = type;
        this.cut = cut;
        this.name = name;

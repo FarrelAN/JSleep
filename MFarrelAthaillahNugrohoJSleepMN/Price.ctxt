@@ -1,5 +1,6 @@
 #BlueJ class context
 comment0.target=Price
+comment0.text=\r\n\ Ini\ adalah\ class\ Price\r\n\ @author\ M.\ Farrel\ Athaillah\ Nugroho\r\n\ @version\ Modul\ 3\r\n
 comment1.params=price
 comment1.target=Price(double)
 comment2.params=price\ discount
