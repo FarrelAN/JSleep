@@ -5,18 +5,19 @@ package MFarrelAthaillahNugrohoJSleepMN;
  * @version Modul 3
  */
 public class Price{
-    
     public double price;
     public double discount;
     
-    public Price (double price) {
-        this.discount = 0;
+    public Price (double price){
         this.price = price;
     }
-    
-    public Price (double price, double discount) {
+    public Price (double price, double discount){
         this.price = price;
-        this.discount = 0;
+        this.discount = discount;
+    }
+    public String toString(){
+        return "====PRICE====\n" + "Harga : " + price + 
+        "\nDiskon : " + discount;
     }
 }
 /*
