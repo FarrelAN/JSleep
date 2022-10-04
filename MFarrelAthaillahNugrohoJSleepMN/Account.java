@@ -4,7 +4,7 @@ package MFarrelAthaillahNugrohoJSleepMN;
  * @author M. Farrel Athaillah Nugroho
  * @version Modul 3
  */
-public class Account extends Serializable
+public class Account extends Serializable implements FileParser
 {   
     public String name;
     public String email;
@@ -16,8 +16,17 @@ public class Account extends Serializable
     this.email = email;
     this.password = password;
     }
+    
     public String toString(){
         return "====ACCOUNT====\n" + "Nama : " + name + "\nEmail : " + email + 
         "\nPassword : " + password;
+    }
+    
+    public Object write() {
+        return null;
+    }
+    
+    public boolean read (String content) {
+        return false;
     }
 }

@@ -4,7 +4,8 @@ package MFarrelAthaillahNugrohoJSleepMN;
  * @author M. Farrel Athaillah Nugroho
  * @version Modul 3
  */
-public class Voucher extends Serializable {
+public class Voucher extends Serializable implements FileParser
+{
    public Type type;
    public double cut;
    public String name;
@@ -53,4 +54,13 @@ public class Voucher extends Serializable {
    public boolean isUsed(){
        return (boolean) used;
    }
+   
+   public Object write() {
+       return null;
+   }
+   
+   public boolean read (String content) {
+       return false;
+   }
+   
 }

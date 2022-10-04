@@ -4,7 +4,7 @@ package MFarrelAthaillahNugrohoJSleepMN;
  * @author M. Farrel Athaillah Nugroho
  * @version Modul 3
  */
-public class Room extends Serializable
+public class Room extends Serializable implements FileParser
 {
     public Price price;
     public String address;
@@ -30,6 +30,14 @@ public class Room extends Serializable
         return "Room ID: " + super.id + "\nName: " + this.name + "\nSize: " + this.size +
                 "\nPrice: " + this.price.price + "\nDiscount: " + this.price.discount + 
                 "\nFacility: " + this.facility + "\nCity: "+ this.city + "\nAddress: " + this.address;
+    }
+    
+    public Object write() {
+        return null;
+    }
+    
+    public boolean read (String content) {
+        return false;
     }
 }
 

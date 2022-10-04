@@ -16,7 +16,7 @@ public class Price{
         this.discount = discount;
     }
     public String toString(){
-        return "====PRICE====\n" + "Harga : " + price + 
+        return "\n====PRICE====\n" + "Harga : " + price + 
         "\nDiskon : " + discount;
     }
 }

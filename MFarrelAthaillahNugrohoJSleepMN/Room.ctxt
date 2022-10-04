@@ -1,6 +1,12 @@
 #BlueJ class context
 comment0.target=Room
 comment0.text=\r\n\ Ini\ adalah\ class\ Room\r\n\ @author\ M.\ Farrel\ Athaillah\ Nugroho\r\n\ @version\ Modul\ 3\r\n
-comment1.params=
-comment1.target=java.lang.String\ toString()
-numComments=2
+comment1.params=id\ name\ size\ price\ facility\ city\ address
+comment1.target=Room(int,\ java.lang.String,\ int,\ Price,\ Facility,\ City,\ java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=
+comment3.target=java.lang.Object\ write()
+comment4.params=content
+comment4.target=boolean\ read(java.lang.String)
+numComments=5
