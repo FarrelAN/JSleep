@@ -1,16 +1,19 @@
 #BlueJ class context
 comment0.target=Payment
 comment0.text=\r\n\ Ini\ adalah\ class\ Payment\r\n\ @author\ M.\ Farrel\ Athaillah\ Nugroho\r\n\ @version\ Modul\ 3\r\n
-comment1.params=id\ buyerId\ renterId\ roomId
-comment1.target=Payment(int,\ int,\ int,\ int)
-comment2.params=id\ buyer\ renter\ roomId
-comment2.target=Payment(int,\ Account,\ Renter,\ int)
-comment3.params=
-comment3.target=java.lang.String\ print()
-comment4.params=
-comment4.target=int\ getRoomId()
+comment1.params=id\ buyerId\ renterId\ roomId\ from\ to
+comment1.target=Payment(int,\ int,\ int,\ int,\ java.util.Date,\ java.util.Date)
+comment2.params=id\ buyer\ renter\ roomId\ from\ to
+comment2.target=Payment(int,\ Account,\ Renter,\ int,\ java.util.Date,\ java.util.Date)
+comment3.params=from\ to\ room
+comment3.target=boolean\ availability(java.util.Date,\ java.util.Date,\ Room)
+comment4.params=from\ to\ room
+comment4.target=boolean\ makeBooking(java.util.Date,\ java.util.Date,\ Room)
 comment5.params=
-comment5.target=java.lang.String\ getDuration()
+comment5.target=java.lang.String\ print()
 comment6.params=
-comment6.target=java.lang.String\ getTime()
-numComments=7
+comment6.target=int\ getRoomId()
+comment7.params=
+comment7.target=java.lang.String\ getTime()
+comment7.text=public\ String\ getDuration()\ {\r\n\ \ \ \ \ \ \ \ SimpleDateFormat\ SDFormat\ \=\ new\ SimpleDateFormat("dd\ MMMMM\ yyyy");\r\n\ \ \ \ \ \ \ \ this.from\ \=\ Calendar.getInstance();\r\n\ \ \ \ \ \ \ \ this.to\ \=\ Calendar.getInstance();\r\n\ \ \ \ \ \ \ \ String\ from_date\ \=\ SDFormat.format(from.getTime());\r\n\ \ \ \ \ \ \ \ to.add(Calendar.DATE,\ 2);\r\n\ \ \ \ \ \ \ \ String\ to_date\ \=\ SDFormat.format(to.getTime());\r\n\ \ \ \ \ \ \ \ return\ from_date\ +\ "-"\ +\ to_date;\r\n\ \ \ \ \ \ \ \ \r\n}
+numComments=8

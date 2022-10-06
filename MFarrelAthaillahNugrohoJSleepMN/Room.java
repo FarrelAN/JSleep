@@ -1,4 +1,7 @@
 package MFarrelAthaillahNugrohoJSleepMN;
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  * Ini adalah class Room
  * @author M. Farrel Athaillah Nugroho
@@ -13,8 +16,8 @@ public class Room extends Serializable implements FileParser
     public BedType bedType;
     public City city;
     public String name;
+    public ArrayList <Date> booked = new ArrayList<Date>();
     
-   
     public Room(int id, String name, int size, Price price, Facility facility, City city, String address)
     {
         super(id);

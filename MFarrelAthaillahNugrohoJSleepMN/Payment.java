@@ -9,22 +9,44 @@ import java.text.SimpleDateFormat;
  * @version Modul 3
  */
 public class Payment extends Invoice {
-    public Calendar to;
-    public Calendar from;
+    public Date to;
+    public Date from;
     private int roomId;
 
-    public Payment(int id, int buyerId, int renterId, int roomId) {
+    public Payment(int id, int buyerId, int renterId, int roomId, Date from, Date to) {
         super(id, buyerId, renterId);
-        this.from = Calendar.getInstance();
-        this.to = Calendar.getInstance();
+        this.from = from;
+        this.to = to;
         this.roomId = roomId;
     }
     
-    public Payment(int id, Account buyer, Renter renter, int roomId) {
+    public Payment(int id, Account buyer, Renter renter, int roomId, Date from, Date to) {
         super(id, buyer, renter);
-        this.from = Calendar.getInstance();
-        this.to = Calendar.getInstance();
+        this.from = from;
+        this.to = to;
         this.roomId = roomId;
+    }
+    
+    public static boolean availability(Date from, Date to, Room room){
+        for(Object booked : room.booked){
+            if(from.equals(booked) == true || to.equals(booked) == true){
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    
+    public static boolean makeBooking(Date from, Date to, Room room){
+        if(to.before(from) == true){
+            return false;
+        }
+        if(availability(from, to, room) == true){
+            room.booked.add(from);
+            room.booked.add(to);
+            return true;
+        }else
+            return false;
     }
     
     public String print() {
@@ -38,7 +60,7 @@ public class Payment extends Invoice {
         return this.roomId;
     }
     
-    public String getDuration() {
+    /*public String getDuration() {
         SimpleDateFormat SDFormat = new SimpleDateFormat("dd MMMMM yyyy");
         this.from = Calendar.getInstance();
         this.to = Calendar.getInstance();
@@ -47,14 +69,12 @@ public class Payment extends Invoice {
         String to_date = SDFormat.format(to.getTime());
         return from_date + "-" + to_date;
         
-    }
+    }*/
     
-    public String getTime() {
-        SimpleDateFormat SDFormat = new SimpleDateFormat("'Formatted Date: ' dd MMMMM yyyy");
-        this.from = Calendar.getInstance();
-        String from_date = SDFormat.format(from.getTime());
-        return from_date;
-        
+    public String getTime(){
+        SimpleDateFormat SDFormat = new SimpleDateFormat("'Formatted Date = 'dd MMMMM yyyy");
+        String curr_date = SDFormat.format(this.from.getTime());
+        return curr_date;
     }
 }
 

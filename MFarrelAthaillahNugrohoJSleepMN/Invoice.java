@@ -1,5 +1,6 @@
 package MFarrelAthaillahNugrohoJSleepMN;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Ini adalah class Invoice yang merupakan subclass dari Serializable
@@ -22,7 +23,8 @@ public class Invoice extends Serializable
     public int renterId;
     public RoomRating rating;
     public int buyerId;
-    public Calendar time;
+    public Date time;
+    Date now = new Date();
     
     protected Invoice(int id, int buyerId, int renterId)
     {
@@ -31,7 +33,7 @@ public class Invoice extends Serializable
        this.renterId = renterId;
        this.rating = RoomRating.NONE;
        this.status = PaymentStatus.WAITING;
-       this.time = Calendar.getInstance();
+       this.time = now;
     }
 
     public Invoice(int id, Account buyer, Renter renter)
@@ -41,13 +43,13 @@ public class Invoice extends Serializable
        this.renterId = renter.id;
        this.rating = RoomRating.NONE;
        this.status = PaymentStatus.WAITING;
-        this.time = Calendar.getInstance();
+       this.time = time;
     }
     
     public String print()
     {
-        return "Invoice Id : " + super.id + "Buyer Id : " + this.buyerId + 
-               "\nRenter Id : " + this.renterId + "\nTime : " + this.time + 
-               "\nRoom Rating: " + this.rating + "\nPayment Status: " + this.status;
+        return "Invoice Id : " + super.id + "Buyer Id : " + buyerId + 
+               "\nRenter Id : " + renterId + "\nTime : " + time + 
+               "\nRoom Rating: " + rating + "\nPayment Status: " + status;
     }
 }
