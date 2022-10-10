@@ -8,7 +8,13 @@ import java.sql.Date;
  * @version Modul 3
  */
 public class JSleep
-{   
+{
+    public static void main(String[] args) {
+        System.out.println("Hello from IntelliJ!");
+    }
+
+
+    /*
     public static Room createRoom(){
         Price price = new Price(100000, 5);
         Room room = new Room(1, "Presidential Suite", 5, price, Facility.FitnessCenter, City.DEPOK, "JL. Margonda Raya");
@@ -33,7 +39,7 @@ public class JSleep
         System.out.println(Payment.makeBooking(start3, end3,RoomB));
         System.out.println("Membuat booking dari tanggal 20 hingga 15");
     }
-    /*  Room test = createRoom();
+        Room test = createRoom();
         System.out.println(test.name);
         System.out.println(test.size);
         System.out.println(test.price.price);
