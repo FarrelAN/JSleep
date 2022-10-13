@@ -2,6 +2,8 @@ package MFarrelAthaillahNugrohoJSleepMN;
 
 import java.util.Iterator;
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Algorithm {
 
@@ -141,6 +143,64 @@ public class Algorithm {
             }
         }
         return false;
+    }
+
+    public static <T> List<T> collect (T[] array, T value) {
+        Predicate<T> pred = value::equals;
+        return collect(Arrays.stream(array).iterator(), pred);
+    }
+
+    public static <T> List<T> collect (Iterable<T> iterable, T value) {
+        Predicate<T> pred = value::equals;
+        return collect(iterable.iterator(), pred);
+    }
+
+    public static <T> List<T> collect (Iterator<T> iterator, T value) {
+        Predicate<T> pred = value::equals;
+        return collect(iterator, pred);
+    }
+
+    public static <T> List<T> collect (T[] array, Predicate<T> pred) {
+        return collect(Arrays.stream(array).iterator(), pred);
+    }
+
+    public static <T> List<T> collect (Iterable<T> iterable, Predicate<T> pred) {
+        return collect(iterable.iterator(), pred);
+    }
+
+    public static <T> List<T> collect(Iterator<T> iterator, Predicate<T> pred) {
+        List<T> list = new ArrayList<>();
+        while (iterator.hasNext()){
+            T next = iterator.next();
+            if (pred.predicate(next)){
+                list.add(next);
+            }
+        }
+        return list;
+    }
+
+    public static <T> List<T> paginate(T[] array, int page, int pageSize, Predicate<T> pred) {
+        final Iterator<T> iterat = Arrays.stream(array).iterator();
+        return paginate(iterat, page, pageSize, pred);
+    }
+
+    public static <T> List<T> paginate(Iterable<T> iterable, int page, int pageSize, Predicate<T> pred) {
+        final Iterator<T> iterab = iterable.iterator();
+        return paginate(iterab, page, pageSize, pred);
+    }
+
+    public static <T> List<T> paginate(Iterator<T> iterator, int page, int pageSize, Predicate<T> pred) {
+        List<T> list = new ArrayList<T>();
+        int counter = 0;
+        while (iterator.hasNext()){
+            if (pred.predicate(iterator.next())) {
+                if (counter >= page * pageSize && counter < (page * pageSize) + pageSize) {
+                    list.add(iterator.next());
+                }
+                counter++;
+            }
+        }
+        return list;
     }
 
 }
