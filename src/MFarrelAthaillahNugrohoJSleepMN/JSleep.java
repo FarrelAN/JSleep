@@ -1,20 +1,56 @@
 package MFarrelAthaillahNugrohoJSleepMN;
-import java.util.ArrayList;
-import java.sql.Date;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+import com.google.gson.*;
 
 /**
  * Ini adalah class JSleep
  * @author M. Farrel Athaillah Nugroho
- * @version Modul 3
+ * @version Modul 6
  */
-public class JSleep
-{
+public class JSleep {
+    class Country {
+        public String name;
+        public int population;
+        public List<String> listOfStates;
+    }
+
+    public static void main(String[] args) {
+        String filepath = "D:\\Kuliah\\kelas semm 3\\Praktikum OOP\\JSleep\\city.json";
+        Gson gson = new Gson();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filepath));
+            Country input = gson.fromJson(br, Country.class);
+            System.out.println("name: " + input.name);
+            System.out.println("population: " + input.population);
+            System.out.println("states :");
+            input.listOfStates.forEach(state -> System.out.println(state));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+    /*
     public static void main(String[] args) {
         System.out.println("Hello from IntelliJ!");
     }
 
 
-    /*
+
     public static Room createRoom(){
         Price price = new Price(100000, 5);
         Room room = new Room(1, "Presidential Suite", 5, price, Facility.FitnessCenter, City.DEPOK, "JL. Margonda Raya");
@@ -50,5 +86,5 @@ public class JSleep
         Room room = new Room(1, "hotel", 20, price, Facility.WiFi);
         return room;
     } */
-}
+
 
