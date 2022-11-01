@@ -26,9 +26,8 @@ public class Invoice extends Serializable
     public Date time;
     Date now = new Date();
     
-    protected Invoice(int id, int buyerId, int renterId)
+    protected Invoice(int buyerId, int renterId)
     {
-       super(id);
        this.buyerId = buyerId;
        this.renterId = renterId;
        this.rating = RoomRating.NONE;
@@ -36,9 +35,8 @@ public class Invoice extends Serializable
        this.time = now;
     }
 
-    public Invoice(int id, Account buyer, Renter renter)
+    public Invoice(Account buyer, Renter renter)
     {
-       super(id);
        this.buyerId = buyer.id;
        this.renterId = renter.id;
        this.rating = RoomRating.NONE;

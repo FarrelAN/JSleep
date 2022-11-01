@@ -1,36 +1,34 @@
 package MFarrelAthaillahNugrohoJSleepMN;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Ini adalah class Renter
  * @author M. Farrel Athaillah Nugroho
- * @version Modul 3
+ * @version Modul 6
  */
 public class Renter extends Serializable {
-    public int phoneNumber = 0;
+    public String phoneNumber = "0";
     public String address = "";
     public String username;
-    
-    public Renter(int id, String username) {
-        super(id);
-        this.username = username;
-    }
-    
-    public Renter(int id, String username, String address) {
-        super(id);
-        this.username = username;
-        this.address = address;
-    }
-    
-    public Renter(int id, String username, int phoneNumber) {
-        super(id);
-        this.username = username;
-        this.phoneNumber = phoneNumber;
-    }
-    
-    public Renter(int id, String username, int phoneNumber, String address) {
-        super(id);
+    public static final String REGEX_NAME  = "^[A-Z][^\\s][A-Za-z0-9_]{3,19}$";
+    public static final String REGEX_PHONE = "^[0-9]{8,12}$";
+
+    public Renter(String username, String phoneNumber, String address) {
         this.username = username;
         this.phoneNumber = phoneNumber;
         this.address = address;
+    }
+
+    public boolean validate() {
+        Pattern pattern = Pattern.compile(REGEX_NAME);
+        Matcher matchName = pattern.matcher(username);
+        Pattern pat = Pattern.compile(REGEX_PHONE);
+        Matcher matchPhone = pat.matcher(phoneNumber);
+        boolean matchUsername = matchName.find();
+        boolean matchPhoneNumber = matchPhone.find();
+        return matchUsername && matchPhoneNumber;
     }
 
 }

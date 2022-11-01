@@ -7,20 +7,22 @@ import java.util.Date;
  * @author M. Farrel Athaillah Nugroho
  * @version Modul 3
  */
-public class Room extends Serializable implements FileParser
+public class Room extends Serializable
 {
     public Price price;
     public String address;
     public int size;
     public Facility facility;
+
     public BedType bedType;
     public City city;
     public String name;
     public ArrayList <Date> booked = new ArrayList<Date>();
+
+    public int accountId;
     
-    public Room(int id, String name, int size, Price price, Facility facility, City city, String address)
+    public Room(int accountid, String name, int size, Price price, Facility facility, City city, String address)
     {
-        super(id);
         this.name = name;
         this.size = size;
         this.price = price;
@@ -34,13 +36,6 @@ public class Room extends Serializable implements FileParser
                 "\nPrice: " + this.price.price + "\nDiscount: " + this.price.discount + 
                 "\nFacility: " + this.facility + "\nCity: "+ this.city + "\nAddress: " + this.address;
     }
-    
-    public Object write() {
-        return null;
-    }
-    
-    public boolean read (String content) {
-        return false;
-    }
+
 }
 
