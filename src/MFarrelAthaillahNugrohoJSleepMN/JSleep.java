@@ -16,12 +16,25 @@ import com.google.gson.*;
 public class JSleep {
 
     public static void main(String[] args) {
-        Renter testregex = new Renter("Netlab_", "081234567890", "Jl Margonda Raya");
-        Renter testregexFail = new Renter("Netlab", "081", "Jalan");
-        System.out.println(testregex.validate());
-        System.out.println(testregexFail.validate());
+        try {
+            String filepath = "D:\\Kuliah\\kelas semm 3\\Praktikum OOP\\JSleep\\src\\json\\account.json";
+            JsonTable <Account> tableAccount = new JsonTable<>(Account.class, filepath);
+            tableAccount.add(new Account("name", "email", "password"));
+            tableAccount.writeJson();
+        }
+        catch (Throwable trd){
+            trd.printStackTrace();
+        }
 
+        for(int i = 0; i < 10; i++){
+            ThreadingObject thread = new ThreadingObject("Thread " + i);
+        }
+        Account testRegex = new Account("Farrel", "farrel980@gmail.com", "404Farrel");
+        Account testRegexFail =new Account("Farrel","__farrel980@gmail.com", "404 farrel");
+        System.out.println(testRegex.validate());
+        System.out.println(testRegexFail.validate());
     }
+
 
     public static List<Room> filterByCity(List<Room> list, String search, int page, int pageSize){
 
@@ -34,8 +47,8 @@ public class JSleep {
         return Algorithm.paginate(filterlist, page, pageSize, (e) -> Objects.equals(e.name, search));
     }
 
-    public static List<Room> filterByPrice(List<Room> list, double min, double max){
-        return Algorithm.<Room>collect(list,room -> room.price.price >= min && room.price.price <= max);
+    public static List<Room> filterByPrice(List<Room> list, double minPrice, double maxPrice){
+        return Algorithm.<Room>collect(list,room -> room.price.price >= minPrice && room.price.price <= maxPrice);
     }
 
     public static List<Room> filterByAccountId(List<Room> list, int accountId, int page, int pageSize){
