@@ -1,15 +1,13 @@
-package com.MFarrelAthaillahNugrohoJSleepMN;
+package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 /**
  * Ini adalah class Payment
  * @author M. Farrel Athaillah Nugroho
- * @version Modul 6
+ * @version Modul 7
  */
 public class Payment extends Invoice {
 
@@ -37,7 +35,7 @@ public class Payment extends Invoice {
         return roomId;
     }
 
-    public static boolean makeBooking(Date from,Date to,Room room){
+    public static boolean makeBooking(Date from, Date to, Room room){
         if(availability(from, to, room)){
             Calendar start = Calendar.getInstance();
             start.setTime(from);

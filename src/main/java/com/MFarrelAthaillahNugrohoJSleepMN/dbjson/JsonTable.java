@@ -1,4 +1,4 @@
-package com.MFarrelAthaillahNugrohoJSleepMN;
+package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;

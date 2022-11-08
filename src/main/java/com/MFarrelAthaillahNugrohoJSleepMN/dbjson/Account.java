@@ -1,14 +1,17 @@
-package com.MFarrelAthaillahNugrohoJSleepMN;
+package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
+
 /**
- * Ini adalah class Account yang merupakan subclass dari class Serializable dan digunakan untuk menginisialisasi variabel String name, String email, dan String password.
+ * Ini adalah class Account
  * @author M. Farrel Athaillah Nugroho
- * @version Modul 3
+ * @version Modul 7
  */
 public class Account extends Serializable
 {
     public String name;
     public String email;
     public String password;
+    public Renter renter;
+    public double balance;
 
     public final static String REGEX_EMAIL = "^[A-Za-z0-9]+@(.+)$";
     public final static String REGEX_PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$";
@@ -17,6 +20,7 @@ public class Account extends Serializable
         this.name = name;
         this.email = email;
         this.password = password;
+        this.balance = 0;
     }
     public Object write (){
         return 0;

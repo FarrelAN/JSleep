@@ -1,4 +1,4 @@
-package com.MFarrelAthaillahNugrohoJSleepMN;
+package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
 
 public class Complaint extends Serializable
 {

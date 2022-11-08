@@ -1,4 +1,4 @@
-package com.MFarrelAthaillahNugrohoJSleepMN;
+package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

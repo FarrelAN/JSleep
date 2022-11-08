@@ -1,4 +1,9 @@
-package com.MFarrelAthaillahNugrohoJSleepMN;
+package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
+import com.MFarrelAthaillahNugrohoJSleepMN.BedType;
+import com.MFarrelAthaillahNugrohoJSleepMN.City;
+import com.MFarrelAthaillahNugrohoJSleepMN.Facility;
+import com.MFarrelAthaillahNugrohoJSleepMN.Price;
+
 import java.util.ArrayList;
 import java.util.Date;
 

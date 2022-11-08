@@ -1,11 +1,11 @@
-package com.MFarrelAthaillahNugrohoJSleepMN;
-import java.util.Calendar;
+package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
+
 import java.util.Date;
 
 /**
- * Ini adalah class Invoice yang merupakan subclass dari Serializable
+ * Ini adalah class Invoice
  * @author M. Farrel Athaillah Nugroho
- * @version Modul 3
+ * @version Modul 7
  */
 public class Invoice extends Serializable
 {

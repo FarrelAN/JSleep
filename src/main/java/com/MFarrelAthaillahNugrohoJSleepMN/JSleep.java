@@ -1,11 +1,11 @@
 package com.MFarrelAthaillahNugrohoJSleepMN;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
+
+import com.MFarrelAthaillahNugrohoJSleepMN.dbjson.Account;
+import com.MFarrelAthaillahNugrohoJSleepMN.dbjson.JsonDBEngine;
+import com.MFarrelAthaillahNugrohoJSleepMN.dbjson.JsonTable;
+import com.MFarrelAthaillahNugrohoJSleepMN.dbjson.Room;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -14,21 +14,31 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author M. Farrel Athaillah Nugroho
  * @version Modul 7
  */
-public class JSleep {
-    @SpringBootApplication
 
+@SpringBootApplication
+public class JSleep {
+
+    /*
     class Country {
         public String name;
         public int population;
         public List<String> listOfStates;
     }
-
+    */
     public static void main(String[] args) {
+        JsonDBEngine.Run(JSleep.class);
         SpringApplication.run(JSleep.class, args);
+        Runtime.getRuntime().addShutdownHook(new Thread(()-> JsonDBEngine. join()));
+    }
+}
+
+    /*
+    JSLEEP PRE CS MODUL 7
+            SpringApplication.run(JSleep.class, args);
 
         try {
             String filepath = "D:\\Kuliah\\kelas semm 3\\Praktikum OOP\\JSleep\\src\\json\\account.json";
-            JsonTable <Account> tableAccount = new JsonTable<>(Account.class, filepath);
+            JsonTable<Account> tableAccount = new JsonTable<>(Account.class, filepath);
             tableAccount.add(new Account("name", "email", "password"));
             tableAccount.writeJson();
         }
@@ -43,7 +53,6 @@ public class JSleep {
         Account testRegexFail =new Account("Farrel","__farrel980@gmail.com", "404 farrel");
         System.out.println(testRegex.validate());
         System.out.println(testRegexFail.validate());
-    }
 
 
     public static Room createRoom(){
@@ -67,15 +76,6 @@ public class JSleep {
 }
 
 
-
-
-
-
-
-
-
-
-    /*
     public static void main(String[] args) {
         System.out.println("Hello from IntelliJ!");
     }
