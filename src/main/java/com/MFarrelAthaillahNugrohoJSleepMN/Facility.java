@@ -2,7 +2,7 @@ package com.MFarrelAthaillahNugrohoJSleepMN;
 /**
  * Ini adalah enum Facility
  * @author M. Farrel Athaillah Nugroho
- * @version Modul 3
+ * @version Modul 7
  */
 public enum Facility
 {

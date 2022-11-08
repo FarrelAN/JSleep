@@ -2,7 +2,7 @@ package com.MFarrelAthaillahNugrohoJSleepMN;
 /**
  * Ini adalah class Rating
  * @author M. Farrel Athaillah Nugroho
- * @version Modul 3
+ * @version Modul 7
  */
 public class Rating
 {
