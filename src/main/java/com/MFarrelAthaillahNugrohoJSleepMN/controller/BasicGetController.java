@@ -15,8 +15,8 @@ public interface BasicGetController<T extends Serializable> {
 
     @GetMapping("/{id}")
     public default T getById(@PathVariable int id) {
-        final Predicate<T> idFilter = pred -> (id == pred.id);
-        return Algorithm.find(getJsonTable(), idFilter);
+        final Predicate<T> idPred = pred -> (id == pred.id);
+        return Algorithm.find(getJsonTable(), idPred);
     }
     @GetMapping(value ="/page")
     public default List<T> getPage(@RequestParam int page, @RequestParam int pageSize) {
