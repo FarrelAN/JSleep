@@ -1,7 +1,5 @@
 package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
 
-import java.util.Date;
-
 /**
  * Ini adalah class Invoice
  * @author M. Farrel Athaillah Nugroho
@@ -23,8 +21,7 @@ public class Invoice extends Serializable
     public int renterId;
     public RoomRating rating;
     public int buyerId;
-    public Date time;
-    Date now = new Date();
+
     
     protected Invoice(int buyerId, int renterId)
     {
@@ -32,7 +29,6 @@ public class Invoice extends Serializable
        this.renterId = renterId;
        this.rating = RoomRating.NONE;
        this.status = PaymentStatus.WAITING;
-       this.time = now;
     }
 
     public Invoice(Account buyer, Renter renter)
@@ -41,13 +37,12 @@ public class Invoice extends Serializable
        this.renterId = renter.id;
        this.rating = RoomRating.NONE;
        this.status = PaymentStatus.WAITING;
-       this.time = time;
     }
     
     public String print()
     {
         return "Invoice Id : " + super.id + "Buyer Id : " + buyerId + 
-               "\nRenter Id : " + renterId + "\nTime : " + time + 
-               "\nRoom Rating: " + rating + "\nPayment Status: " + status;
+               "\nRenter Id : " + renterId + "\nRoom Rating: " + rating +
+                "\nPayment Status: " + status;
     }
 }
