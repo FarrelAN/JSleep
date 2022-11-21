@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * Ini adalah class Serializable yang digunakan untuk menginisialisasi variabel int id yang akan digunakan di subclass lain
  * @author M. Farrel Athaillah Nugroho
- * @version Modul 6
+ * @version Modul 8
  */
 
 public class Serializable implements Comparable<Serializable> {

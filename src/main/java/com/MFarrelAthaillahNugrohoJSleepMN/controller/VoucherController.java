@@ -2,53 +2,48 @@ package com.MFarrelAthaillahNugrohoJSleepMN.controller;
 
 import com.MFarrelAthaillahNugrohoJSleepMN.*;
 import com.MFarrelAthaillahNugrohoJSleepMN.dbjson.*;
+import com.MFarrelAthaillahNugrohoJSleepMN.controller.BasicGetController;
+import com.MFarrelAthaillahNugrohoJSleepMN.dbjson.*;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/voucher")
-public class VoucherController implements BasicGetController<Voucher>{
-    @JsonAutowired(value = Voucher.class, filepath = "D:\\Kuliah\\kelas semm 3\\Praktikum OOP\\JSleep\\src\\main\\java\\json\\voucher.json")
+public class VoucherController implements BasicGetController<Voucher> {
+    @JsonAutowired(value = Voucher.class, filepath = "D:\\Kuliah\\kelas semm 3\\Praktikum OOP\\JSleep\\src\\main\\java\\com\\MFarrelAthaillahNugrohoJSleepMN\\json\\voucher.json")
 
-    public JsonTable<Voucher> voucherTable;
-
+    public static JsonTable<Voucher> voucherTable;
     @Override
     public JsonTable<Voucher> getJsonTable() {
         return voucherTable;
     }
 
     @GetMapping("/{id}/isUsed")
-    boolean isUsed(@PathVariable int id) {
-        if(voucherTable == null) {
-            return false;
-        }
-        return Algorithm.<Voucher>exists(getJsonTable(),pred -> pred.id == id);
+    boolean isUsed(@PathVariable int id, @RequestParam double price) {
+        Voucher voucher = Algorithm.<Voucher>find(voucherTable, pred -> pred.id == id);
+        return voucher.isUsed();
     }
 
-    @GetMapping("/{id}/canApply")
+    @GetMapping("/getAvailable ")
+    List<Voucher> getAvailable(
+            @RequestParam int page,
+            @RequestParam int size)
+    {
+        return Algorithm.<Voucher>paginate(voucherTable, page, size, pred -> !pred.isUsed());
+    }
+
+    @GetMapping("/{id}/canApply ")
     boolean canApply(
             @PathVariable int id,
             @RequestParam double price
     ) {
-        Price check = new Price(price);
-        for(Voucher voucher : voucherTable) {
-            if((voucher.id == id)) {
-                return voucher.canApply(check);
-            }
+        Voucher voucher = Algorithm.<Voucher>find(voucherTable, pred -> pred.id == id);
+        if(voucher != null){
+            return voucher.canApply(price);
+        } else {
+            return false;
         }
-        return false;
-    }
-
-    @GetMapping("/getAvailable")
-    List<Voucher> getAvailable(
-            @RequestParam int page,
-            @RequestParam int pageSize
-    ) {
-        if(voucherTable == null) {
-            return null;
-        }
-        return Algorithm.<Voucher>paginate(voucherTable,page,pageSize,pred -> pred.isUsed() == false);
     }
 }

@@ -1,5 +1,8 @@
 package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * Ini adalah class Account
  * @author M. Farrel Athaillah Nugroho
@@ -22,23 +25,29 @@ public class Account extends Serializable
         this.password = password;
         this.balance = 0;
     }
-    public Object write (){
-        return 0;
-    }
-    public boolean read (String a){
-        return true;
+
+    public Object write(){
+        return null;
     }
 
+    public boolean read(String a){
+        return false;
+    }
+
+
     public String toString (){
-        return "====ACCOUNT====\n" + "Nomor Id anda : " + id + "Nama : " + name + "\nEmail : " + email +
+        return "====ACCOUNT====\n" +  "\nName : " + name + "\nEmail : " + email +
                 "\nPassword : " + password;
     }
 
-    public boolean validate () {
-        if(this.email.matches(REGEX_EMAIL) && this.password.matches(REGEX_PASSWORD)) {
+    public boolean validate() {
+        Pattern patternEmail = Pattern.compile(REGEX_EMAIL);
+        Pattern patternPassword = Pattern.compile(REGEX_PASSWORD);
+        Matcher matcherEmail = patternEmail.matcher(email);
+        Matcher matcherPassword = patternPassword.matcher(password);
+        if(matcherEmail.matches() && matcherPassword.matches()) {
             return true;
-        }
-        else {
+        }else {
             return false;
         }
     }

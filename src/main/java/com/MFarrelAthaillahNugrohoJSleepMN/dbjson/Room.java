@@ -35,11 +35,16 @@ public class Room extends Serializable
         this.city = city;
         this.address = address;
     }
-    
     public String toString(){
-        return "Room ID: " + super.id + "\nName: " + this.name + "\nSize: " + this.size +
-                "\nPrice: " + this.price.price + "\nDiscount: " + this.price.discount + 
-                "\nFacility: " + this.facility + "\nCity: "+ this.city + "\nAddress: " + this.address;
+        return "=====Room=====\n" + "\nName : " + name + "\nChecking Price. . . \n" + price +
+                "\nFacility : " + facility + "\nCity : " + city + "\nAddress : " + address;
+    }
+
+    public Object write(){
+        return 0;
+    }
+    public boolean read(String a){
+        return true;
     }
 
 }

@@ -2,59 +2,57 @@ package com.MFarrelAthaillahNugrohoJSleepMN.controller;
 
 import com.MFarrelAthaillahNugrohoJSleepMN.*;
 import com.MFarrelAthaillahNugrohoJSleepMN.dbjson.*;
+import com.MFarrelAthaillahNugrohoJSleepMN.controller.*;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
-import java.util.List;
+import java.util.*;
 
 @RestController
 @RequestMapping("/room")
-public class RoomController implements BasicGetController<Room> {
 
-    @JsonAutowired(value = Payment.class, filepath = "D:\\Kuliah\\kelas semm 3\\Praktikum OOP\\JSleep\\src\\main\\java\\json\\room.json")
+public class RoomController implements BasicGetController<Room>{
+    @JsonAutowired(value = Room.class, filepath = "D:\\Kuliah\\kelas semm 3\\Praktikum OOP\\JSleep\\src\\main\\java\\com\\MFarrelAthaillahNugrohoJSleepMN\\json\\room.json")
+
     public static JsonTable<Room> roomTable;
     @Override
-    public JsonTable<Room> getJsonTable(){
+    public JsonTable<Room> getJsonTable() {
         return roomTable;
     }
 
-    @GetMapping("{id}/renter")
-    List<Room> getRoomByRenter(
+    @GetMapping("/{id}/renter")
+    List<Room> getRoombyRenter(
             @PathVariable int id,
             @RequestParam int page,
             @RequestParam int pageSize
-    ) {
-        final Predicate<Room> ID = pred -> (id == pred.accountId);
-        return Algorithm.paginate(roomTable, page, pageSize, ID);
+    ){
+        return Algorithm.<Room>paginate(getJsonTable(), page, pageSize, pred -> pred.accountId == id);
     }
 
-    @PostMapping("/create")
-    Room create(
+    @GetMapping("/create")
+    public Room create(
             @RequestParam int accountId,
-            @RequestParam String name,
             @RequestParam int size,
-            @RequestParam Price price,
+            @RequestParam String name,
+            @RequestParam String address,
+            @RequestParam int price,
             @RequestParam Facility facility,
-            @RequestParam City city,
-            @RequestParam String address
-    ) {
-        Room room = new Room(accountId, name, size, price, facility, city, address);
-        final Predicate<Account> idFilter = pred -> (accountId == pred.id);
-        if(Algorithm.exists(AccountController.accountTable, idFilter)) {
-            if(Algorithm.find(AccountController.accountTable, idFilter).renter != null) {
-                try {
-                    roomTable.add(room);
-                    roomTable.writeJson(roomTable, roomTable.filepath);
-                }catch(Throwable t) {
-                    t.printStackTrace();
-                }
-                return room;
-            } else {
-                return null;
-            }
-        }else {
+            @RequestParam City city
+    ){
+        Account account = Algorithm.<Account>find(AccountController.accountTable, pred -> pred.id == accountId);
+        if(account == null){
             return null;
         }
+        else{
+            Room room = new Room(accountId, name, size, new Price(price), facility, city, address);
+            //room.id = roomTable.size() + 1;
+            room.accountId = accountId;
+            room.size = size;
+            room.name = name;
+            room.address = address;
+            //room.price = price;
+            room.facility = facility;
+            room.city = city;
+            roomTable.add(room);
+            return room;
+        }
     }
-
 }

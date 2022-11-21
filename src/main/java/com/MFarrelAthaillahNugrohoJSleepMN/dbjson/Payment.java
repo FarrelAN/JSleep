@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Ini adalah class Payment
  * @author M. Farrel Athaillah Nugroho
- * @version Modul 7
+ * @version Modul 8
  */
 public class Payment extends Invoice {
 
@@ -29,6 +29,14 @@ public class Payment extends Invoice {
         this.roomId = roomId;
         this.from = from;
         this.to = to;
+    }
+
+    public static boolean makeBooking(Date from,Date to,Room room){
+        return false;
+    }
+
+    public static boolean availability(Date from,Date to,Room room){
+        return true;
     }
 
     public int getRoomId() {
@@ -68,5 +76,3 @@ public class Payment extends Invoice {
     }
 
 }
-
-`
