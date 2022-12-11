@@ -1,8 +1,5 @@
 package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
 
-import com.MFarrelAthaillahNugrohoJSleepMN.Price;
-import com.MFarrelAthaillahNugrohoJSleepMN.Type;
-
 /**
  * Ini adalah class Voucher
  * @author M. Farrel Athaillah Nugroho

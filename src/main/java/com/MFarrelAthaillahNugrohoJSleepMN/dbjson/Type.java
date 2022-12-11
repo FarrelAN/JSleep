@@ -1,4 +1,4 @@
-package com.MFarrelAthaillahNugrohoJSleepMN;
+package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
 /**
  * Ini adalah Enum Type
  * @author M. Farrel Athaillah Nugroho

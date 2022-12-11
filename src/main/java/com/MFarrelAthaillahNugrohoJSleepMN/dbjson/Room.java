@@ -1,8 +1,4 @@
 package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
-import com.MFarrelAthaillahNugrohoJSleepMN.BedType;
-import com.MFarrelAthaillahNugrohoJSleepMN.City;
-import com.MFarrelAthaillahNugrohoJSleepMN.Facility;
-import com.MFarrelAthaillahNugrohoJSleepMN.Price;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,38 +10,53 @@ import java.util.Date;
  */
 public class Room extends Serializable
 {
-    public Price price;
-    public String address;
     public int size;
-    public Facility facility;
-
+    public String name;
+    public String address;
+    public ArrayList<Facility> facility = new ArrayList<>();
+    public Price price;
     public BedType bedType;
     public City city;
-    public String name;
-    public ArrayList <Date> booked = new ArrayList<Date>();
 
     public int accountId;
-    
-    public Room(int accountid, String name, int size, Price price, Facility facility, City city, String address)
-    {
+    public ArrayList<Date> booked = new ArrayList<>();
+
+
+    public Room(int accountId, String name, int size, Price price, ArrayList<Facility> facility, City city, String address, BedType bedType) {
+        this.accountId = accountId;
         this.name = name;
         this.size = size;
         this.price = price;
-        this.facility = facility;
         this.city = city;
         this.address = address;
+        this.bedType = bedType;
+        this.facility.addAll(facility);
+        this.booked = new ArrayList<>();
     }
-    public String toString(){
-        return "=====Room=====\n" + "\nName : " + name + "\nChecking Price. . . \n" + price +
-                "\nFacility : " + facility + "\nCity : " + city + "\nAddress : " + address;
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "size=" + size +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", facility=" + facility +
+                ", price=" + price +
+                ", bedType=" + bedType +
+                ", city=" + city +
+                ", accountId=" + accountId +
+                ", booked=" + booked +
+                '}';
+    }
+
+    public boolean read(String xxx){
+        return true;
     }
 
     public Object write(){
-        return 0;
+        return null;
     }
-    public boolean read(String a){
-        return true;
-    }
+
 
 }
 

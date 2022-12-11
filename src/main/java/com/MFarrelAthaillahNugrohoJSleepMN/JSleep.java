@@ -35,23 +35,6 @@ public class JSleep {
         Runtime.getRuntime().addShutdownHook(new Thread(()-> JsonDBEngine. join()));
     }
 
-    public static Room createRoom(){
-        Price price = new Price(300000.0, 10);
-        Room room = new Room(2, "Restaurant", 35, price, Facility.AC, City.BALI, "Jl. jalan");
-        return room;
-    }
-
-    public static List<Room> filterByAccountId(List<Room> list, int accountId, int page, int pageSize){
-        return Algorithm.<Room>paginate(list,page,pageSize,room -> room.accountId == accountId);
-    }
-
-    public static List<Room> filterByPrice(List<Room> list, double minPrice, double maxPrice){
-        return Algorithm.<Room>collect(list,room -> room.price.price >= minPrice && room.price.price <= maxPrice);
-    }
-
-    public static List<Room> filterByCity(List<Room> list, String search, int page, int pageSize){
-        return Algorithm.paginate(list, page, pageSize, room -> room.city.toString().toLowerCase().contains(search.toLowerCase()));
-    }
 
 }
 

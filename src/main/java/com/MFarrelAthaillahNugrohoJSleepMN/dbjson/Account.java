@@ -14,7 +14,7 @@ public class Account extends Serializable
     public String email;
     public String password;
     public Renter renter;
-    public double balance;
+    public double balance = 0;
 
     public final static String REGEX_EMAIL = "^[A-Za-z0-9]+@(.+)$";
     public final static String REGEX_PASSWORD = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$";
@@ -23,7 +23,6 @@ public class Account extends Serializable
         this.name = name;
         this.email = email;
         this.password = password;
-        this.balance = 0;
     }
 
     public Object write(){
@@ -31,7 +30,7 @@ public class Account extends Serializable
     }
 
     public boolean read(String a){
-        return false;
+        return true;
     }
 
 

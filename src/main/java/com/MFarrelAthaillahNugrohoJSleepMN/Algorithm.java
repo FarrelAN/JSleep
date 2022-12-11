@@ -156,13 +156,11 @@ public class Algorithm {
         int occurences = 0;
         int startingIdx = page * pageSize;
         List<T> pageList = new ArrayList<>(pageSize);
-        // skip first occurrences of element
         while (iterator.hasNext() && occurences < startingIdx) {
             T obj = iterator.next();
             if (pred.predicate(obj))
                 ++occurences;
         }
-        // get the next occurrences of element
         while (iterator.hasNext() && pageList.size() < pageSize) {
             T obj = iterator.next();
             if (pred.predicate(obj))

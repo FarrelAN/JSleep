@@ -1,4 +1,4 @@
-package com.MFarrelAthaillahNugrohoJSleepMN;
+package com.MFarrelAthaillahNugrohoJSleepMN.dbjson;
 /**
  * Ini adalah enum Facility
  * @author M. Farrel Athaillah Nugroho

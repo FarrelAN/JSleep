@@ -1,5 +1,7 @@
 package com.MFarrelAthaillahNugrohoJSleepMN;
 
+import com.MFarrelAthaillahNugrohoJSleepMN.dbjson.Price;
+
 import java.util.ArrayList;
 
 public class Validate {
