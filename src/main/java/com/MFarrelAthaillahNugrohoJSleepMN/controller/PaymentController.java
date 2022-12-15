@@ -39,7 +39,7 @@ public class PaymentController implements BasicGetController<Payment> {
         try {
             checkIn  = sdf.parse(from);
             checkOut = sdf.parse(to);
-            System.out.println("date  "+checkOut);
+            System.out.println("Date  "+ checkOut);
         }
         catch (ParseException e) {
             e.printStackTrace();
@@ -54,8 +54,7 @@ public class PaymentController implements BasicGetController<Payment> {
             baru.status  = Invoice.PaymentStatus.WAITING;
             Payment.makeBooking(checkIn, checkOut, roomfind);
             find.balance -= price * (double) diffInDays;
-
-            System.out.println("response backend: "+baru.toString());
+            System.out.println("response backend: " + baru.toString());
             paymentTable.add(baru);
             return baru;
         }
@@ -63,7 +62,7 @@ public class PaymentController implements BasicGetController<Payment> {
             System.out.println("Insufficient funds");
         }
         if(!Payment.availability(checkIn, checkOut, roomfind)){
-            System.out.println("kamar sudah di booking");
+            System.out.println("Room already booked");
         }
         return null;
     }
